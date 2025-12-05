@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renacer Financiero — Guía Simple para Organizar tu Dinero</title>
+  <meta name="description" content="Renacer Financiero es una guía simple para organizar tu dinero, salir del caos y vivir tu independencia con más tranquilidad, sin tecnicismos ni planillas imposibles.">
+
+  <!-- ESTILOS INTEGRADOS -->
+  <style>
+:root {
+  --bg-dark: #FAF4E8;          /* Fondo beige suave */
+  --bg-card: #FFFFFF;          /* Tarjetas claras */
+  --bg-soft: #F7E9D3;          /* Secciones suaves */
+  --accent-green: #2E8B57;     /* Verde elegante */
+  --accent-yellow: #F3D9B1;    /* Amarillo cálido */
+  --accent-beige: #F7E9D3;     /* Beige CTA */
+  --text-main: #222622;        /* Texto principal */
+  --text-muted: #555C52;       /* Texto secundario */
+  --text-soft: #7A8177;        /* Texto suave */
+  --max-width: 1120px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.12); /* Sombra suave */
+}
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-dark);   /* Aplica el beige */
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(14px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: linear-gradient(to bottom, rgba(17,20,28,0.96), rgba(17,20,28,0.92));
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 20%, #E4FFF4 0, var(--accent-green) 45%, #2B5C45 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #102317;
+    font-weight: 800;
+    font-size: 0.8rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 18px;
+    font-size: 0.88rem;
+    color: var(--text-soft);
+  }
+
+  .nav-links a {
+    position: relative;
+    padding-bottom: 3px;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
+    transition: width 0.18s ease-out;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .btn {
+    border-radius: var(--radius-pill);
+    padding: 9px 18px;
+    font-size: 0.92rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.18s ease-out;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent-beige), #FFE9C2);
+    color: #26211A;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    filter: brightness(1.04);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    background: transparent;
+    color: var(--text-main);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent-green);
+    background: rgba(255,255,255,0.04);
+  }
+
+  main {
+    flex: 1;
+  }
+
+  section {
+    padding: 40px 18px;
+  }
+
+  .section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  /* HERO */
+
+  .hero {
+    padding-top: 44px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
+    gap: 32px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-green);
+    background: rgba(155,229,193,0.12);
+    border: 1px solid rgba(155,229,193,0.45);
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    margin-bottom: 12px;
+  }
+
+  .hero-highlight {
+    color: var(--accent-green);
+  }
+
+  .hero-subtitle {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    max-width: 520px;
+    margin-bottom: 18px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .hero-badge {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(155,229,193,0.45);
+    color: var(--accent-green);
+    background: rgba(12,24,20,0.8);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .hero-guarantee {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-guarantee span.icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(124,223,141,0.16);
+    border: 1px solid rgba(124,223,141,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.76rem;
+    color: #7CDF8D;
+  }
+
+  .hero-social-proof {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    margin-top: 6px;
+  }
+
+  .hero-image-card {
+    background: radial-gradient(circle at top left, #262C3D 0, var(--bg-card) 55%, #050608 100%);
+    border-radius: 26px;
+    padding: 18px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: var(--text-soft);
+  }
+
+  .hero-image-pill {
+    padding: 4px 9px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255,255,255,0.09);
+    font-size: 0.76rem;
+  }
+
+  .ebook-mockup {
+    margin-top: 10px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #151824, #10131B);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 16px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 16px;
+    align-items: center;
+  }
+
+  .ebook-cover {
+    aspect-ratio: 3/4;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #11141C 0, #22283A 40%, var(--accent-yellow) 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px 14px;
+    color: #FDF5EA;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  }
+
+  .ebook-cover-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.9;
+  }
+
+  .ebook-cover-title {
+    margin-top: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .ebook-cover-sub {
+    margin-top: 4px;
+    font-size: 0.78rem;
+    opacity: 0.9;
+  }
+
+  .ebook-cover-footer {
+    margin-top: 10px;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.9;
+  }
+
+  .ebook-meta {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    display: grid;
+    gap: 6px;
+  }
+
+  .ebook-meta strong {
+    color: var(--accent-yellow);
+    font-weight: 600;
+  }
+
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .pill {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text-muted);
+    background: rgba(17,20,28,0.9);
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    max-width: 520px;
+    margin-bottom: 18px;
+  }
+
+  .small-heading {
+    font-size: 0.98rem;
+    margin-bottom: 6px;
+  }
+
+  .two-column {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .list {
+    display: grid;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .list-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .list-bullet {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .list-bullet.green {
+    background: rgba(155,229,193,0.18);
+    border: 1px solid rgba(155,229,193,0.9);
+  }
+
+  .list-bullet.gold {
+    background: rgba(243,217,177,0.18);
+    border: 1px solid rgba(243,217,177,0.9);
+  }
+
+  .list-bullet.red {
+    background: rgba(229,99,99,0.18);
+    border: 1px solid rgba(229,99,99,0.8);
+  }
+
+  .chapters-grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .chapter-card {
+    background: rgba(17,21,32,0.96);
+    border-radius: 14px;
+    padding: 12px 12px 11px;
+    border: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.85rem;
+  }
+
+  .chapter-number {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-yellow);
+    margin-bottom: 3px;
+  }
+
+  .chapter-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .chapter-desc {
+    color: var(--text-soft);
+    font-size: 0.8rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .bonus-card {
+    background: rgba(17,21,32,0.96);
+    border-radius: 16px;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.85rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    padding: 3px 7px;
+    border-radius: var(--radius-pill);
+    background: rgba(243,217,177,0.12);
+    border: 1px solid rgba(243,217,177,0.5);
+    color: var(--accent-yellow);
+    margin-bottom: 6px;
+  }
+
+  .bonus-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .bonus-desc {
+    color: var(--text-soft);
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .bonus-meta {
+    font-size: 0.78rem;
+    color: var(--accent-yellow);
+  }
+
+  .social-proof-section {
+    background: #FAF6EF;
+    padding: 60px 20px;
+    border-top: 1px solid #EEE4D3;
+    border-bottom: 1px solid #EEE4D3;
+  }
+
+  .social-proof-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .social-proof-title {
+    font-size: 2rem;
+    color: #2A2E29;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .social-proof-sub {
+    font-size: 1.05rem;
+    color: #4F554E;
+    margin-bottom: 35px;
+  }
+
+  .social-proof-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .sp-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #EFE8D9;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  }
+
+  .sp-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .sp-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2B2F27;
+  }
+
+  .sp-desc {
+    color: #6A6F68;
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .step-card {
+    border-radius: 14px;
+    padding: 12px 12px 11px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(17,21,32,0.96);
+    font-size: 0.85rem;
+  }
+
+  .step-number {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+    background: rgba(243,217,177,0.16);
+    border: 1px solid rgba(243,217,177,0.7);
+  }
+
+  .step-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .step-desc {
+    color: var(--text-soft);
+    font-size: 0.8rem;
+  }
+
+  .pricing-section {
+    padding-top: 0;
+  }
+
+  .pricing-card {
+    margin-top: 6px;
+    background: linear-gradient(135deg, #171B26, #1D2230);
+    border-radius: 20px;
+    padding: 18px 18px 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: var(--shadow-soft);
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 22px;
+    align-items: center;
+  }
+
+  .price-line {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }
+
+  .price-line del {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .price-main {
+    font-size: 1.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .price-main span.currency {
+    font-size: 1rem;
+    color: var(--accent-yellow);
+  }
+
+  .price-note {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+  }
+
+  .trust-list {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    display: grid;
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--accent-green);
+  }
+
+  .pricing-side-note {
+    font-size: 0.82rem;
+    color: var(--text-soft);
+  }
+
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--accent-yellow);
+    margin-top: 4px;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+  }
+
+  .faq-item {
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(17,21,32,0.96);
+    padding: 10px 12px 11px;
+  }
+
+  .faq-q {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .faq-a {
+    color: var(--text-soft);
+    font-size: 0.8rem;
+  }
+
+  .policies {
+    margin-top: 8px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(11,14,22,0.96);
+    padding: 16px 16px 14px;
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    display: grid;
+    gap: 10px;
+  }
+
+  .policy-block h3 {
+    font-size: 0.86rem;
+    margin-bottom: 3px;
+    color: var(--text-main);
+  }
+
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 18px;
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    background: #0B0E16;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    text-decoration: underline;
+    text-decoration-color: rgba(255,255,255,0.2);
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid,
+    .two-column,
+    .pricing-card,
+    .faq-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-grid {
+      gap: 24px;
+    }
+
+    .cards-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .chapters-grid,
+    .steps-grid,
+    .social-proof-cards {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    header {
+      position: static;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .hero {
+      padding-top: 28px;
+    }
+
+    section {
+      padding-inline: 14px;
+    }
+
+    .pricing-card {
+      padding: 14px;
+    }
+
+    .hero-image-card {
+      padding: 14px;
+    }
+
+    .ebook-mockup {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .social-proof-section {
+      padding: 40px 16px;
+    }
+  }
+
+
+/* ==== PALETA CLARA LATAM — FIX GLOBAL ==== */
+
+/* Fondo general */
+body, html {
+  background: #FAF4E8 !important;
+  color: #222622 !important;
+}
+
+/* Tarjeta del HERO */
+.hero-image-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.10) !important;
+}
+
+/* Mockup del ebook */
+.ebook-mockup {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+}
+
+/* Portada libro */
+.ebook-cover {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F7E9D3 100%) !important;
+  color: #222622 !important;
+}
+
+/* Tags */
+.pill {
+  background: #F3D9B1 !important;
+  color: #2E4A39 !important;
+  border: none !important;
+}
+
+/* Capítulos / Bonos / Pasos */
+.chapter-card,
+.bonus-card,
+.step-card,
+.pricing-card,
+.faq-item,
+.policies,
+.sp-card {
+  background: #FFFFFF !important;
+  color: #222622 !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05) !important;
+}
+
+/* Textos secundarios */
+.chapter-desc,
+.bonus-desc,
+.step-desc,
+.faq-a,
+.pricing-side-note {
+  color: #7A8177 !important;
+}
+
+/* ====== PALETA FINAL RENACER FINANCIERO (CLARA, SIN ROSA, SIN OSCUROS) ====== */
+
+:root {
+  --bg-dark: #FFF6EB;      /* crema suave general */
+  --bg-card: #FFFFFF;      /* tarjetas blancas */
+  --bg-soft: #FFF0DD;      /* secciones suaves */
+  --accent-green: #2E7D4F; /* verde LATAM */
+  --accent-yellow: #F6BF55;/* dorado suave */
+  --accent-beige: #FFE2B3; /* beige botones */
+  --text-main: #222522;
+  --text-muted: #555A53;
+  --text-soft: #757B73;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.08);
+}
+
+/* Fondo general en crema */
+html, body {
+  background: #FFF6EB !important;
+  color: #222522 !important;
+}
+
+/* HEADER claro */
+header {
+  background: rgba(255,255,255,0.94) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.nav-links a {
+  color: #555A53 !important;
+}
+
+/* BOTÓN PRINCIPAL beige/dorado (sin rosa) */
+.btn-primary {
+  background: linear-gradient(135deg, #FFE2B3, #F6BF55) !important;
+  color: #3A2910 !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18) !important;
+}
+
+/* HERO: tarjeta de la derecha en blanco, no oscura */
+.hero-image-card,
+.ebook-mockup {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.08) !important;
+}
+
+/* Portada del ebook clara, tipo Lovable (blanco -> beige dorado) */
+.ebook-cover {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FFE2B3 100%) !important;
+  color: #222522 !important;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.16) !important;
+}
+
+/* Pills / tags */
+.pill {
+  background: #FFF0DD !important;
+  color: #555A53 !important;
+  border: 1px solid #F6BF5555 !important;
+}
+
+/* Badges verdes del hero */
+.hero-badge {
+  background: rgba(46,125,79,0.08) !important;
+  color: #2E7D4F !important;
+  border-color: rgba(46,125,79,0.35) !important;
+}
+
+/* TODAS LAS TARJETAS DE CONTENIDO EN BLANCO */
+.chapter-card,
+.bonus-card,
+.step-card,
+.pricing-card,
+.faq-item,
+.policies,
+.sp-card {
+  background: #FFFFFF !important;
+  color: #222522 !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05) !important;
+}
+
+/* Textos secundarios dentro de esas tarjetas */
+.chapter-desc,
+.bonus-desc,
+.step-desc,
+.faq-a,
+.pricing-side-note {
+  color: #757B73 !important;
+}
+
+/* SECCIÓN DE MÉTRICAS / SOCIAL PROOF */
+.social-proof-section {
+  background: #FFF6EB !important;
+  border-top: 1px solid #F0E1CC !important;
+  border-bottom: 1px solid #F0E1CC !important;
+}
+
+/* FOOTER claro, nada oscuro */
+footer {
+  background: #FFF0DD !important;
+  border-top: 1px solid #F0E1CC !important;
+  color: #757B73 !important;
+}
+
+
+
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){
+        n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;
+      n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '112159171015645');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=112159171015645&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-logo">RF</div>
+          <span>Renacer Financiero</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#inicio">Inicio</a>
+          <a href="#contenido">Contenido</a>
+          <a href="#bonos">Extras</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#compra">Compra</a>
+        </nav>
+        <a href="https://pay.hotmart.com/Q103178622P?checkoutMode=10"
+           class="btn btn-primary"
+           onclick="fbq('track','InitiateCheckout');">
+          Obtener ahora
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="inicio" class="hero">
+        <div class="section-inner hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span>Guía simple para tu dinero en la vida real</span>
+            </div>
+            <h1 class="hero-title">
+              Organizá tu dinero, <span class="hero-highlight">bajá el estrés</span> y empezá a vivir tu independencia con más tranquilidad.
+            </h1>
+            <p class="hero-subtitle">
+              <strong>“Renacer Financiero — Guía simple para organizar tu dinero”</strong> te enseña paso a paso cómo ordenar ingresos, gastos, deudas y ahorros sin tecnicismos ni planillas imposibles.
+            </p>
+
+            <div class="hero-badges">
+              <span class="hero-badge">Ideal para tu primera vida independiente</span>
+              <span class="hero-badge">Lectura sencilla, ideas claras</span>
+              <span class="hero-badge">Aplicable en cualquier país</span>
+            </div>
+
+            <div class="hero-actions">
+              <a href="https://pay.hotmart.com/Q103178622P?checkoutMode=10"
+                 class="btn btn-primary"
+                 onclick="fbq('track','InitiateCheckout');">
+                Obtener ahora
+              </a>
+              <a href="#contenido" class="btn btn-outline">Ver lo que vas a aprender</a>
+            </div>
+
+            <div class="hero-guarantee">
+              <span class="icon">✓</span>
+              <span>
+                Acceso digital inmediato · Una sola compra, acceso para siempre · Garantía de 7 días según condiciones del checkout.
+              </span>
+            </div>
+            <p class="hero-social-proof">
+              Pensada para personas entre 20 y 40 años que quieren dejar de improvisar con su dinero y tomar decisiones con más seguridad.
+            </p>
+          </div>
+
+          <div class="hero-image-card">
+            <div class="hero-image-header">
+              <span>Lo que recibís</span>
+              <span class="hero-image-pill">Ebook digital en PDF · Lectura rápida</span>
+            </div>
+            <div class="ebook-mockup">
+              <div class="ebook-cover">
+                <div class="ebook-cover-tag">Guía práctica</div>
+                <div class="ebook-cover-title">
+                  Renacer Financiero<br />
+                  Guía simple para organizar tu dinero
+                </div>
+                <div class="ebook-cover-sub">
+                  Diseñada para tu primera vida independiente: menos caos, más claridad y control sobre tu plata.
+                </div>
+                <div class="ebook-cover-footer">
+                  <span>Por Christian Romero</span>
+                  <span>Lectura directa y humana</span>
+                </div>
+              </div>
+              <div class="ebook-meta">
+                <div><strong>Formato:</strong> PDF descargable</div>
+                <div><strong>Enfoque:</strong> finanzas simples para la vida diaria</div>
+                <div><strong>Incluye:</strong></div>
+                <div class="pill-list">
+                  <span class="pill">Conceptos claros</span>
+                  <span class="pill">Ejemplos cotidianos</span>
+                  <span class="pill">Ideas accionables</span>
+                </div>
+                <div class="pill-list" style="margin-top:6px;">
+                  <span class="pill">Presupuesto sencillo</span>
+                  <span class="pill">Plan para ahorrar</span>
+                  <span class="pill">Guía para deudas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARA QUIÉN ES -->
+      <section>
+        <div class="section-inner two-column">
+          <div>
+            <h2 class="section-title">¿Para quién es esta guía?</h2>
+            <p class="section-subtitle">
+              Para personas que quieren dejar de “sobrevivir al mes” y pasar a manejar su dinero con intención, aunque no se consideren “de finanzas”.
+            </p>
+            <div class="list">
+              <div class="list-item">
+                <div class="list-bullet green"></div>
+                <div>
+                  Empezaste o estás por empezar a vivir solo/a y querés organizar alquiler, servicios, comida y gastos sin vivir con miedo a llegar al final de mes.
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-bullet green"></div>
+                <div>
+                  Tenés ingresos, pero sentís que la plata “se va sola” y no sabés con claridad en qué se va cada mes.
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-bullet green"></div>
+                <div>
+                  Querés empezar a ahorrar y salir de deudas sin fórmulas raras ni lenguaje técnico.
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-bullet gold"></div>
+                <div>
+                  Buscás una guía directa, con ejemplos reales y explicaciones simples que podés leer aunque tengas poco tiempo.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="small-heading">Si te identificás con esto, esta guía es para vos:</h3>
+            <div class="list">
+              <div class="list-item">
+                <div class="list-bullet red"></div>
+                <div>
+                  Llegás al final del mes sin tener idea exacta de cuánto gastaste ni en qué.
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-bullet red"></div>
+                <div>
+                  Te da ansiedad abrir la app del banco o de la tarjeta porque sabés que algo no está bien.
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-bullet red"></div>
+                <div>
+                  Intentaste hacer un Excel complicado alguna vez… y quedó abandonado a los pocos días.
+                </div>
+              </div>
+              <div class="list-item">
+                <div class="list-bullet green"></div>
+                <div>
+                  Querés una forma <strong>sencilla, clara y humana</strong> de organizar tu dinero y tomar mejores decisiones.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENIDO -->
+      <section id="contenido">
+        <div class="section-inner">
+          <h2 class="section-title">Lo que vas a encontrar dentro de la guía</h2>
+          <p class="section-subtitle">
+            Basada en situaciones reales de la vida independiente, cada capítulo te ayuda a pasar de la confusión a la claridad con ideas simples y aplicables.
+          </p>
+
+          <div class="chapters-grid">
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 1</div>
+              <div class="chapter-title">Una nueva vida, una nueva mentalidad</div>
+              <div class="chapter-desc">
+                Entendé la diferencia entre mentalidad dependiente e independiente. Empezá a tomar decisiones de dinero alineadas con la vida que querés construir.
+              </div>
+            </div>
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 2</div>
+              <div class="chapter-title">Libertad y responsabilidad con tu dinero</div>
+              <div class="chapter-desc">
+                Cómo cambiar el “solo quiero llegar” por “quiero construir”. Ver el dinero como herramienta para tu libertad y no solo como fuente de preocupación.
+              </div>
+            </div>
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 3</div>
+              <div class="chapter-title">Presupuesto: tu mejor aliado</div>
+              <div class="chapter-desc">
+                Diseñá un presupuesto simple que podés mantener en la vida real, sin fórmulas raras. Dividí tu dinero en categorías claras y evitá sorpresas a fin de mes.
+              </div>
+            </div>
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 4</div>
+              <div class="chapter-title">Gasto inteligente y hábitos financieros</div>
+              <div class="chapter-desc">
+                Aprendé a gastar sin culpa, pero con intención. Diferenciá entre caprichos, hábitos automáticos y gastos que realmente suman a tu vida.
+              </div>
+            </div>
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 5</div>
+              <div class="chapter-title">Ahorrar sin sentir que te privás de todo</div>
+              <div class="chapter-desc">
+                Pasá de “no me queda nada para ahorrar” a “el ahorro es parte de mi vida”. Ideas para que ahorrar deje de depender solo de tu fuerza de voluntad.
+              </div>
+            </div>
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 6</div>
+              <div class="chapter-title">El dinero prestado también tiene reglas</div>
+              <div class="chapter-desc">
+                Cómo usar el crédito con inteligencia, entender intereses y evitar que las deudas se transformen en bola de nieve. Incluye guía para armar tu plan de salida.
+              </div>
+            </div>
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 7</div>
+              <div class="chapter-title">Ganar más: creá un segundo ingreso</div>
+              <div class="chapter-desc">
+                Estrategias sencillas para generar ingresos extra sin dejar tu trabajo actual. Ideas concretas para aprovechar habilidades que ya tenés.
+              </div>
+            </div>
+            <div class="chapter-card">
+              <div class="chapter-number">Capítulo 8</div>
+              <div class="chapter-title">Tu camino hacia la libertad financiera</div>
+              <div class="chapter-desc">
+                Integramos todo: pasos claros para seguir creciendo, mantener hábitos y no soltar tu plan incluso cuando la vida se complica.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BONOS / ORDER BUMPS -->
+      <section id="bonos">
+        <div class="section-inner">
+          <h2 class="section-title">Complementos opcionales para ir más profundo</h2>
+          <p class="section-subtitle">
+            En el checkout vas a poder sumar complementos opcionales (order bumps) que incluyen desafíos, plantillas y organizadores para aplicar lo que aprendés en la guía.
+          </p>
+
+          <div class="cards-grid">
+            <div class="bonus-card">
+              <div class="badge">Complemento opcional</div>
+              <div class="bonus-title">7-Day Financial Detox Challenge</div>
+              <div class="bonus-desc">
+                Mini-desafío de 7 días con acciones concretas para limpiar gastos innecesarios, ordenar pagos y recuperar aire financiero.
+              </div>
+              <div class="bonus-meta">
+                • Ideal para empezar con acción inmediata.<br />
+                • Ejercicios diarios simples y guiados.
+              </div>
+            </div>
+
+            <div class="bonus-card">
+              <div class="badge">Complemento opcional</div>
+              <div class="bonus-title">Automatic Money Flow System</div>
+              <div class="bonus-desc">
+                Sistema simple para decidir qué porcentaje va a gastos, ahorro, deudas y objetivos, y dejarlo lo más automatizado posible.
+              </div>
+              <div class="bonus-meta">
+                • Incluye pasos para armar tu propio esquema automático.<br />
+                • Pensado para mantener el orden en el tiempo.
+              </div>
+            </div>
+
+            <div class="bonus-card">
+              <div class="badge">Complemento opcional</div>
+              <div class="bonus-title">Weekly Financial & Productivity Organizer</div>
+              <div class="bonus-desc">
+                Organizador semanal que combina tareas, dinero y prioridades para que tu semana y tus finanzas vayan alineadas.
+              </div>
+              <div class="bonus-meta">
+                • Espacios para planificar semana a semana.<br />
+                • Te ayuda a crear una rutina de revisión constante.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOCIAL PROOF -->
+      <section class="social-proof-section">
+        <div class="social-proof-inner">
+          <h2 class="social-proof-title">
+            +2.500 descargas acumuladas de nuestros materiales en LATAM
+          </h2>
+          <p class="social-proof-sub">
+            Personas reales que usan nuestros recursos para entender mejor a dónde va su dinero y tomar decisiones con más calma.
+          </p>
+
+          <div class="social-proof-cards">
+            <div class="sp-card">
+              <div class="sp-icon">👥</div>
+              <h3 class="sp-title">Personas reales</h3>
+              <p class="sp-desc">
+                Usuarios que aplican cambios simples y mejoran su relación con el dinero paso a paso.
+              </p>
+            </div>
+            <div class="sp-card">
+              <div class="sp-icon">🌎</div>
+              <h3 class="sp-title">Pensado para LATAM</h3>
+              <p class="sp-desc">
+                Enfoque simple, adaptable a distintos países, monedas y niveles de ingreso.
+              </p>
+            </div>
+            <div class="sp-card">
+              <div class="sp-icon">💬</div>
+              <h3 class="sp-title">Buena recepción</h3>
+              <p class="sp-desc">
+                Comentarios positivos sobre claridad, cercanía y alivio al poner orden en las finanzas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section id="como-funciona">
+        <div class="section-inner">
+          <h2 class="section-title">¿Cómo funciona todo el proceso?</h2>
+          <p class="section-subtitle">
+            Todo es 100% digital. En pocos minutos ya podés tener la guía en tu dispositivo y empezar a tomar decisiones nuevas con tu dinero.
+          </p>
+
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-title">Completás la compra</div>
+              <div class="step-desc">
+                Hacés clic en el botón de compra, completás tus datos y realizás el pago a través de Hotmart con los métodos habilitados (tarjeta, PayPal u otros disponibles en tu país).
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-title">Recibís acceso inmediato</div>
+              <div class="step-desc">
+                Apenas se procesa el pago, recibís un email con el acceso a tu cuenta de Hotmart para descargar el ebook “Renacer Financiero — Guía simple para organizar tu dinero”.
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-title">Aplicás a tu ritmo</div>
+              <div class="step-desc">
+                Leés un capítulo por vez, tomás notas y empezás a implementar cambios simples que, sumados, te dan más claridad y control sobre tu plata.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRECIO Y CTA -->
+      <section id="compra" class="pricing-section">
+        <div class="section-inner">
+          <h2 class="section-title">¿Listo para organizar tu dinero con más calma?</h2>
+          <p class="section-subtitle">
+            Si esta guía te ayuda a evitar un solo error costoso o a dejar de perder dinero cada mes sin darte cuenta, ya se pagó sola.
+          </p>
+
+          <div class="pricing-card">
+            <div>
+              <div class="price-line">
+                Precio normal del ebook: <del>US$ 30</del>
+              </div>
+              <div class="price-main">
+                <span class="currency">US$</span>6
+              </div>
+              <div class="price-note">
+                Pago único · Acceso digital inmediato · Sin suscripciones ni cargos ocultos.
+              </div>
+              <a href="https://pay.hotmart.com/Q103178622P?checkoutMode=10"
+                 class="btn btn-primary"
+                 onclick="fbq('track','InitiateCheckout');">
+                Quiero empezar
+              </a>
+              <div class="trust-list">
+                <div class="trust-item">
+                  <span class="trust-dot"></span>
+                  <span>Checkout seguro a través de Hotmart.</span>
+                </div>
+                <div class="trust-item">
+                  <span class="trust-dot"></span>
+                  <span>Acceso inmediato al ebook una vez acreditado el pago.</span>
+                </div>
+                <div class="trust-item">
+                  <span class="trust-dot"></span>
+                  <span>Garantía de 7 días según los términos indicados en el checkout.</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="pricing-side-note">
+                Esta guía está pensada para que puedas leerla y aplicarla incluso con días complicados y poco tiempo.
+              </p>
+              <p class="pricing-side-note" style="margin-top:6px;">
+                No necesitás ganar fortunas para sentirte más tranquilo. Necesitás claridad, un plan sencillo y decisiones que no te dejen en piloto automático.
+              </p>
+              <p class="tagline">
+                Cada peso o dólar que organizás hoy es ansiedad menos mañana.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section>
+        <div class="section-inner">
+          <h2 class="section-title">Preguntas frecuentes</h2>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <div class="faq-q">¿El libro tiene ejercicios?</div>
+              <div class="faq-a">
+                Esta guía se enfoca en explicaciones claras, ejemplos cotidianos y pasos concretos. Si querés ejercicios guiados, en el checkout vas a encontrar complementos opcionales con desafíos y organizadores prácticos.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Necesito saber de finanzas o contabilidad?</div>
+              <div class="faq-a">
+                No. Está escrita justamente para personas que no vienen del mundo financiero. Evita tecnicismos y usa ejemplos cotidianos que podés entender aunque nunca hayas leído nada de finanzas.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Qué pasa después de pagar?</div>
+              <div class="faq-a">
+                Recibís un email con el acceso a Hotmart. Desde ahí podés descargar el PDF en tu computadora, tablet o celular. Si tenés dudas con el acceso, podés escribir al correo de soporte indicado más abajo.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Puedo pedir reembolso si no es para mí?</div>
+              <div class="faq-a">
+                Sí, el reembolso se gestiona a través de Hotmart dentro del plazo que figura en el checkout al momento de la compra, siempre respetando sus términos y políticas.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POLÍTICAS -->
+      <section>
+        <div class="section-inner">
+          <div class="policies" id="politicas">
+            <div class="policy-block" id="privacidad">
+              <h3>Política de Privacidad</h3>
+              <p>
+                Este sitio recopila datos básicos como nombre, correo electrónico e información técnica (como dirección IP y tipo de navegador) con el objetivo de procesar tu compra, darte acceso a los productos y mejorar la experiencia de uso.
+              </p>
+              <p>
+                Los pagos se procesan a través de Hotmart u otros proveedores de pago. No almacenamos los datos de tu tarjeta en este sitio. Para solicitudes relacionadas con tus datos personales, podés escribir a: <strong>dreamdesingprintsco@gmail.com</strong>.
+              </p>
+            </div>
+
+            <div class="policy-block" id="terminos">
+              <h3>Términos de Uso</h3>
+              <p>
+                Al comprar este producto, obtenés una licencia de uso personal. No está permitido revender, compartir públicamente ni distribuir el contenido sin autorización por escrito.
+              </p>
+              <p>
+                El contenido tiene fines educativos e informativos. No reemplaza asesoramiento financiero, legal, fiscal o profesional personalizado. Sos responsable de las decisiones que tomes con tu dinero.
+              </p>
+            </div>
+
+            <div class="policy-block" id="reembolsos">
+              <h3>Política de Reembolsos</h3>
+              <p>
+                El producto es digital. Una vez acreditado el pago, obtenés acceso inmediato al contenido. Si se ofrece garantía de devolución, el plazo y las condiciones específicas se muestran en el checkout de Hotmart.
+              </p>
+              <p>
+                Dentro de ese plazo, podés solicitar el reembolso a través de los canales que indica Hotmart o escribiendo a nuestro correo de soporte con los datos de tu compra.
+              </p>
+            </div>
+
+            <div class="policy-block" id="disclaimer">
+              <h3>Descargo de responsabilidad</h3>
+              <p>
+                Los ejemplos y resultados mencionados en el material son ilustrativos. Los resultados reales pueden variar según tu contexto, ingresos, disciplina y decisiones personales.
+              </p>
+              <p>
+                No garantizamos resultados específicos. El objetivo de la guía es ayudarte a tomar decisiones más informadas, no prometer resultados automáticos.
+              </p>
+            </div>
+
+            <div class="policy-block" id="cookies">
+              <h3>Uso de cookies</h3>
+              <p>
+                Este sitio puede utilizar cookies y tecnologías similares para recordar tus preferencias, analizar el tráfico y medir el rendimiento de campañas de marketing.
+              </p>
+              <p>
+                Podés desactivar o limitar las cookies desde la configuración de tu navegador. Tené en cuenta que algunas funciones del sitio pueden verse afectadas si lo hacés.
+              </p>
+            </div>
+
+            <div class="policy-block" id="contacto">
+              <h3>Contacto</h3>
+              <p>
+                Si tenés dudas sobre el producto, el acceso o cualquiera de estas políticas, podés escribir a:
+              </p>
+              <p>
+                <strong>Email:</strong> dreamdesingprintsco@gmail.com
+              </p>
+              <p>
+                Intentamos responder dentro de 1–2 días hábiles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Renacer Financiero · Todos los derechos reservados.</div>
+        <div class="footer-links">
+          <a href="#privacidad">Privacidad</a>
+          <a href="#terminos">Términos</a>
+          <a href="#reembolsos">Reembolsos</a>
+          <a href="#disclaimer">Descargo</a>
+          <a href="#cookies">Cookies</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
