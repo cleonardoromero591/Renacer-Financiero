@@ -882,7 +882,8 @@ body, html {
   color: #7A8177 !important;
 }
 
-/* ====== PALETA FINAL RENACER FINANCIERO (CLARA, SIN ROSA, SIN OSCUROS) ====== */
+    
+/* ====== PALETA FINAL RENACER FINANCIERO – ESTILO LOVABLE CLARO ====== */
 
 :root {
   --bg-dark: #FFF6EB;      /* crema suave general */
@@ -894,52 +895,65 @@ body, html {
   --text-main: #222522;
   --text-muted: #555A53;
   --text-soft: #757B73;
-  --shadow-soft: 0 18px 45px rgba(0,0,0,0.08);
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.06);
 }
 
-/* Fondo general en crema */
-html, body {
+/* Fondo general crema */
+html,
+body {
   background: #FFF6EB !important;
   color: #222522 !important;
 }
 
-/* HEADER claro */
+/* Todas las secciones con fondo crema suave */
+section {
+  background: #FFF6EB !important;
+}
+
+/* HEADER claro, tipo Lovable */
 header {
-  background: rgba(255,255,255,0.94) !important;
-  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+  background: rgba(255,255,255,0.96) !important;
+  border-bottom: 1px solid #F0E1CC !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04) !important;
 }
 
 .nav-links a {
   color: #555A53 !important;
 }
 
-/* BOTÓN PRINCIPAL beige/dorado (sin rosa) */
+/* BOTÓN PRINCIPAL beige/dorado */
 .btn-primary {
   background: linear-gradient(135deg, #FFE2B3, #F6BF55) !important;
   color: #3A2910 !important;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18) !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14) !important;
 }
 
-/* HERO: tarjeta de la derecha en blanco, no oscura */
+/* Botón outline más suave */
+.btn-outline {
+  border-color: rgba(0,0,0,0.12) !important;
+  color: #555A53 !important;
+}
+
+/* HERO: tarjeta lateral blanca, no oscura */
 .hero-image-card,
 .ebook-mockup {
   background: #FFFFFF !important;
-  border: 1px solid rgba(0,0,0,0.06) !important;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.08) !important;
+  border: 1px solid #F0E1CC !important;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.08) !important;
 }
 
-/* Portada del ebook clara, tipo Lovable (blanco -> beige dorado) */
+/* Portada del ebook clara (blanco → beige dorado) */
 .ebook-cover {
   background: linear-gradient(145deg, #FFFFFF 0%, #FFE2B3 100%) !important;
   color: #222522 !important;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.16) !important;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.14) !important;
 }
 
 /* Pills / tags */
 .pill {
   background: #FFF0DD !important;
   color: #555A53 !important;
-  border: 1px solid #F6BF5555 !important;
+  border: 1px solid #F6BF55 !important;
 }
 
 /* Badges verdes del hero */
@@ -959,7 +973,7 @@ header {
 .sp-card {
   background: #FFFFFF !important;
   color: #222522 !important;
-  border: 1px solid rgba(0,0,0,0.06) !important;
+  border: 1px solid #F0E1CC !important;
   box-shadow: 0 8px 24px rgba(0,0,0,0.05) !important;
 }
 
@@ -979,13 +993,12 @@ header {
   border-bottom: 1px solid #F0E1CC !important;
 }
 
-/* FOOTER claro, nada oscuro */
+/* FOOTER claro */
 footer {
   background: #FFF0DD !important;
   border-top: 1px solid #F0E1CC !important;
   color: #757B73 !important;
 }
-
 
 
   </style>
@@ -1547,3 +1560,4 @@ footer {
   </script>
 </body>
 </html>
+
